@@ -1,0 +1,4 @@
+EnderUI = {
+    Version = 0.1,
+    Path = "/.EnderUI"
+}
