@@ -1,7 +1,11 @@
 generate = function( nChars, nMin, nMax )
-  checkType( nChars, "number", 2 )
-  checkType( nMin, "number", 2 )
-  checkType( nMax, "number", 2 )
+  if type( nChars ) ~= "number" then
+    error( "number expected, got " .. type( nChars ), 2 )
+  elseif type( nMin ) ~= "number" then
+    error( "number expected, got " .. type( nMin ), 2 )
+  elseif type( nMax ) ~= "number" then
+    error( "number expected, got " .. type( nMax ), 2 )
+  end
   
   if nMin > nMax then
     error( "min value must be greater than max value", 2 )
