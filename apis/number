@@ -1,0 +1,16 @@
+number = {
+	generate = function( nChars, nMin, nMax )
+		checkType( nChars, "number", 2 )
+  	checkType( nMin, "number", 2 )
+  	checkType( nMax, "number", 2 )
+  
+  	if nMin > nMax then
+			error( "min value must be greater than max value", 2 )
+		end
+		local n = math.random( nMin, nMax )
+		for i = 1, nChars do
+			n = n .. math.random( nMin, nMax )
+		end
+		return n
+	end
+}
