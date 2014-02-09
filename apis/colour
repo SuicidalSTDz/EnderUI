@@ -1,5 +1,8 @@
 isValid = function( nColour )
-  checkType( nColour, "number", 2 )
+  if type( nColour ) ~= "number" then
+    error( "number expected, got " .. type( nColour ), 2 )
+  end
+  
   for _, v in pairs( colours ) do
     if nColour == v then
       return true
