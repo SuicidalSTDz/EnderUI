@@ -1,7 +1,9 @@
 put = function( sFile )
-  checkType( sFile, "string", 2 )
+  if type( sFile ) ~= "string" then
+    error( "string expected, got " .. type( sFile ), 2 )
+  end
+  
   local sPath = shell.resolve( sFile )
-        
   if fs.isDir( sPath ) then
     error( "cannot upload directories", 2 )
   elseif not fs.exists( sPath ) then
@@ -32,10 +34,13 @@ put = function( sFile )
 end
 
 get = function( sCode, sFile )
-  checkType( sCode, "string", 2 )
-  checkType( sFile, "string", 2 )
+  if type( sCode ) ~= "string" then
+    error( "string expected, got " .. type( sCode ), 2 )
+  elseif type( sFile ) ~= "string" then
+    error( "string expected, got " .. type( sFile ), 2 )
+  end
+  
   local sPath = shell.resolve( sFile )
-
   if fs.exists( sPath ) then
     error( "file exists", 2 )
   end
