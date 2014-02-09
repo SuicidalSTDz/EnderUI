@@ -1,0 +1,11 @@
+colour = {
+	isValid = function( nColour )
+		checkType( nColour, "number", 2 )
+		for _, v in pairs( colours ) do
+			if nColour == v then
+				return true
+			end
+		end
+		return false
+	end
+}
