@@ -1,20 +1,31 @@
 center = function( sText, nx, ny )
-  checkType( sText, "string", 2 )
-  checkType( nx, "number", 2 )
-  checkType( ny, "number", 2 )
+	if type( sText ) ~= "string" then
+		error( "string expected, got " .. type( sText ), 2 )
+	elseif type( nx ) ~= "number" then
+    error( "number expected, got " .. type( nx ), 2 )
+  elseif type( ny ) ~= "number" then
+    error( "number expected, got " .. type( ny ), 2 )
+  end
+  
   term.setCursorPos( ( ( nx - #sText ) / 2) - 1, ny )
   term.write( sText )
 end
 
 bracket = function( sText, nx, ny, nTextColour, nBracketColour, nBackgroundColour )
-  checkType( sText, "string", 2 )
-  checkType( nx, "number", 2 )
-  checkType( ny, "number", 2 )
-  checkType( nTextColour, "number", 2 )
-  checkType( nBracketColour, "number", 2 )
-
-  if type( nBackgroundColour ) ~= nil then
-    checkType( nBackgroundColour, "number", 2 )
+  if type( sText ) ~= "string" then
+		error( "string expected, got " .. type( sText ), 2 )
+	elseif type( nx ) ~= "number" then
+    error( "number expected, got " .. type( nx ), 2 )
+  elseif type( ny ) ~= "number" then
+    error( "number expected, got " .. type( ny ), 2 )
+  elseif type( nTextColour ) ~= "number" then
+    error( "number expected, got " .. type( nTextColour ), 2 )
+  elseif type( nBracketColour ) ~= "number" then
+    error( "number expected, got " .. type( nBracketColour ), 2 )
+  elseif type( nBackgroundColour ) ~= nil then
+    if type( nBackgroundColour ) ~= "number" then
+      error( "number expected, got " .. type( nBackgroundColour ), 2 )
+    end
   end
 
   local xPos, yPos = term.getCursorPos()
